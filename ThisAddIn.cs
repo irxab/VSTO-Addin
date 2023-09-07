@@ -7,9 +7,8 @@ using Excel = Microsoft.Office.Interop.Excel;
 using IronXL;
 
 
-class ThisAddIn
- public partial class test
-    {
+class ThisAddIn{
+    public partial class test{
         //ask doc for this
         private void test_load(object sender, RibbonUIEventArgs e)
         {
@@ -25,10 +24,13 @@ class ThisAddIn
             Excel.Worksheet activeSheet = excelApp.ActiveSheet as Excel.Worksheet;
         }
         private void ThisDocument_Startup(object sender, System.EventArgs e){
+            this.Application.DocumentOpen += new Word.ApplicationEvents4_DocumentOpenEventHandler(WorkWithDocument);
 
+        ((Word.ApplicationEvents4_Event)this.Application).NewDocument += new Word.ApplicationEvents4_NewDocumentEventHandler(WorkWithDocument);
         }
 
         private void ThisDocument_Shutdown(object sender, System.EventArgs e){
-            
+
         }
     }
+}
