@@ -24,4 +24,11 @@ class ThisAddIn
             // Perform display a message box
             Excel.Worksheet activeSheet = excelApp.ActiveSheet as Excel.Worksheet;
         }
+        private void ThisDocument_Startup(object sender, System.EventArgs e){
+
+        }
+
+        private void ThisDocument_Shutdown(object sender, System.EventArgs e){
+            
+        }
     }
